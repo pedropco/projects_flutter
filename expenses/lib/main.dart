@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -10,6 +11,7 @@ main() => runApp(expenseApp());
 class expenseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print('expenseapp');
     final ThemeData tema = ThemeData();
 
     return MaterialApp(
@@ -95,10 +97,9 @@ class _myHomePageState extends State<myHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
-  final mediaQuery = MediaQuery.of(context);
-    final bool isLandscape =
-        mediaQuery.orientation == Orientation.landscape;
+    print('stateful');
+    final mediaQuery = MediaQuery.of(context);
+    final bool isLandscape = mediaQuery.orientation == Orientation.landscape;
 
     final appBar = AppBar(
       title: const Text("Despesas pessoais"),
@@ -114,6 +115,7 @@ class _myHomePageState extends State<myHomePage> {
             onPressed: () => _openTransactionModal(context))
       ],
     );
+
     final availableHeight = mediaQuery.size.height -
         appBar.preferredSize.height -
         mediaQuery.padding.top;
